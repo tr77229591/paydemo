@@ -27,16 +27,21 @@ app.get('/',function(req,res){
 
 });
 
+
+app.post('/callback',function(req,res){
+  console.log(req.body)
+})
+
 i=568
 nonce_sum=1000000006
 trade_no=561903606226
 app.get('/createOrder',function(req,res){
 
-  mch_create_ip="127.0.0.1"
+  mch_create_ip="47.104.14.108:9527"
   mch_id="101520000465"
   nonce_sum=nonce_sum+i
   nonce_str=(nonce_sum).toString()
-  notify_url="http://227.0.0.1:9001/javak/"
+  notify_url="http://47.104.14.108:9527/callback"
   trade_no=trade_no+i
   out_trade_no=(trade_no).toString()
   service="pay.alipay.native"
